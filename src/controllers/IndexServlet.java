@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Message;
+import models.Tasks;
 import utils.DBUtil;
 
 /**
@@ -47,18 +47,18 @@ public class IndexServlet extends HttpServlet {
         }catch (NumberFormatException e){
 
         }
-        List<Message> messages = em.createNamedQuery("getAllMessages",Message.class)
+        List<Tasks> tasks = em.createNamedQuery("getAllMessages",Tasks.class)
                                 .setFirstResult(15 * (page - 1))
                                 .setMaxResults(15)
                                 .getResultList();
 
 
-        long messages_count = (long)em.createNamedQuery("getMessagesCount",Long.class)
+        long tasks_count = (long)em.createNamedQuery("getMessagesCount",Long.class)
                                         .getSingleResult();
         em.close();
 
-        request.setAttribute("messages", messages);
-        request.setAttribute("messages_count",messages_count);
+        request.setAttribute("task", tasks);
+        request.setAttribute("tasks_count",tasks_count);
         request.setAttribute("page",page);
 
         //フラッシュメッセージがセッションスコープにセットされていたら

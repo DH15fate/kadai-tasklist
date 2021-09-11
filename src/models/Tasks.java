@@ -17,16 +17,16 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
         name = "getAllMessages",
-        query = "SELECT m FROM Message AS m ORDER BY m.id DESC"
+        query = "SELECT m FROM Tasks AS m ORDER BY m.id DESC"
     ),
     @NamedQuery(
             name = "getMessagesCount",
-            query = "SELECT COUNT(m) FROM Message AS m"
+            query = "SELECT COUNT(m) FROM Tasks AS m"
             )
 })
 
-@Table(name = "tasklist")
-public class Message {
+@Table(name = "tasks")
+public class Tasks {
 
     @Id
     @Column(name = "id")
