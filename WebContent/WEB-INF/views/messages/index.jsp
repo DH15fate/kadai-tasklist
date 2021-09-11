@@ -15,7 +15,7 @@
                         <c:out value = "${message.id }"/>
                     </a>
 
-                    <c:out value = "${message.content }"/>
+                    &gt;<c:out value = "${message.content }"/>
 
                 </li>
             </c:forEach>
